@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://j1q1xoat71kj"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_vw2sw"]
+[ext_resource type="Texture2D" uid="uid://biftme8sv8nav" path="res://png/peg.png" id="2_dl50o"]
+[ext_resource type="AudioStream" uid="uid://c42g83754pupo" path="res://sounds/bing.wav" id="3_uxv2s"]
+[ext_resource type="Script" path="res://trail.gd" id="4_1px0d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_igsfq"]
+radius = 8.0
+
+[sub_resource type="Gradient" id="Gradient_u846l"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_31kff"]
+gradient = SubResource("Gradient_u846l")
+fill = 1
+fill_from = Vector2(0.5, 0.504587)
+fill_to = Vector2(0.504587, 1)
+
+[sub_resource type="Gradient" id="Gradient_my5a7"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[node name="Ball" type="CharacterBody2D"]
+position = Vector2(429, 108)
+collision_mask = 2
+script = ExtResource("1_vw2sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_igsfq")
+debug_color = Color(0.894118, 0, 0.780392, 0.419608)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_dl50o")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_31kff")
+texture_scale = 6.4
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uxv2s")
+max_polyphony = 6
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Trail" type="Line2D" parent="."]
+width = 4.0
+gradient = SubResource("Gradient_my5a7")
+antialiased = true
+script = ExtResource("4_1px0d")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="no_longer_visible"]

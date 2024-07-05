@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=3 uid="uid://dvr48irt4exlq"]
+
+[ext_resource type="Script" path="res://smoother.gd" id="1_2k6qr"]
+[ext_resource type="Script" path="res://root.gd" id="1_7u4dw"]
+[ext_resource type="PackedScene" uid="uid://j1q1xoat71kj" path="res://ball.tscn" id="1_wfdmu"]
+[ext_resource type="PackedScene" uid="uid://cl6jqg0jtgpr4" path="res://peg.tscn" id="2_khbli"]
+[ext_resource type="Texture2D" uid="uid://dc2g1v5fwk88f" path="res://png/Clock_Tower.jpg" id="3_bksls"]
+[ext_resource type="PackedScene" uid="uid://dqdgs753xp3tu" path="res://brick.tscn" id="5_ingf7"]
+[ext_resource type="Texture2D" uid="uid://byrbdm30o6dyk" path="res://png/shooter.png" id="5_kh48y"]
+[ext_resource type="Script" path="res://Aimer.gd" id="6_s0thb"]
+[ext_resource type="PackedScene" uid="uid://ctq0cak04byxn" path="res://wall.tscn" id="7_352ga"]
+[ext_resource type="Script" path="res://shooter.gd" id="7_ymsng"]
+
+[sub_resource type="Gradient" id="Gradient_ychac"]
+colors = PackedColorArray(0, 1, 1, 1, 0, 1, 1, 0.443137)
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_7u4dw")
+
+[node name="Smoother" type="Node" parent="."]
+script = ExtResource("1_2k6qr")
+
+[node name="ClockTower" type="Sprite2D" parent="."]
+position = Vector2(616.5, 359.9)
+scale = Vector2(0.330469, 0.333241)
+texture = ExtResource("3_bksls")
+
+[node name="LeftWall" parent="." instance=ExtResource("7_352ga")]
+
+[node name="RightWall" parent="." instance=ExtResource("7_352ga")]
+position = Vector2(940, 0)
+
+[node name="Pegs" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Peg" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(602, 116)
+physics_material_override = null
+
+[node name="Peg2" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(724, 201)
+physics_material_override = null
+
+[node name="Peg3" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(470, 207)
+physics_material_override = null
+
+[node name="Peg4" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(631, 231)
+physics_material_override = null
+
+[node name="Peg5" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(859, 212)
+physics_material_override = null
+
+[node name="Peg6" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(780, 319)
+physics_material_override = null
+
+[node name="Peg14" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(810, 514)
+physics_material_override = null
+
+[node name="Peg15" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(791, 510)
+physics_material_override = null
+
+[node name="Peg7" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(821, 263)
+physics_material_override = null
+
+[node name="Peg8" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(760, 405)
+physics_material_override = null
+
+[node name="Peg9" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(334, 287)
+physics_material_override = null
+
+[node name="Peg10" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(400, 297)
+physics_material_override = null
+
+[node name="Peg11" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(451, 441)
+physics_material_override = null
+
+[node name="Peg12" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(396, 425)
+physics_material_override = null
+
+[node name="Peg13" parent="Pegs" instance=ExtResource("2_khbli")]
+position = Vector2(338, 438)
+physics_material_override = null
+
+[node name="brick" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(587, 166)
+rotation = -1.12404
+
+[node name="brick2" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(572, 196)
+rotation = -1.12404
+
+[node name="brick3" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(557, 227)
+rotation = -1.12404
+
+[node name="brick11" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(719, 418)
+rotation = -1.20232
+
+[node name="brick12" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(707, 450)
+rotation = -1.20232
+
+[node name="brick13" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(695, 482)
+rotation = -1.20232
+
+[node name="brick14" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(604, 396)
+rotation = -1.20232
+
+[node name="brick15" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(592, 428)
+rotation = -1.20232
+
+[node name="brick16" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(580, 460)
+rotation = -1.20232
+
+[node name="brick4" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(478, 237)
+rotation = -1.12404
+
+[node name="brick5" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(463, 267)
+rotation = -1.12404
+
+[node name="brick6" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(687, 244)
+rotation = -1.12404
+
+[node name="brick7" parent="Pegs" instance=ExtResource("5_ingf7")]
+position = Vector2(672, 274)
+rotation = -1.12404
+
+[node name="Trails" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Balls" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Launcher" type="Node2D" parent="."]
+position = Vector2(0, -37)
+
+[node name="Aimer" type="Node2D" parent="Launcher" node_paths=PackedStringArray("shooter")]
+modulate = Color(1, 1, 1, 0.705882)
+light_mask = 0
+position = Vector2(626, 36)
+script = ExtResource("6_s0thb")
+shooter = NodePath("../Shooter")
+
+[node name="Ghost" parent="Launcher/Aimer" instance=ExtResource("1_wfdmu")]
+visible = false
+position = Vector2(0, 0)
+ghost = true
+
+[node name="Line" type="Line2D" parent="Launcher/Aimer"]
+width = 8.0
+gradient = SubResource("Gradient_ychac")
+joint_mode = 2
+end_cap_mode = 2
+
+[node name="Shooter" type="Sprite2D" parent="Launcher"]
+position = Vector2(626, 36)
+rotation = 1.66826
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("5_kh48y")
+offset = Vector2(0, 14.07)
+script = ExtResource("7_ymsng")
+min_rotation = -1.5
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointsLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 74.0
+offset_bottom = 45.0
+text = "Points:"
+
+[node name="PointCounter" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 74.0
+offset_top = 20.0
+offset_right = 283.0
+offset_bottom = 45.0
+text = "0"
+horizontal_alignment = 2
